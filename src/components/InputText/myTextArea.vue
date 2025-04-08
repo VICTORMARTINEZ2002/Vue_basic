@@ -44,14 +44,14 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     font-size: 1rem;
     color: #000000;
   }
   
   label {
     font-weight: bold;
-    margin-bottom: 0;
+    margin-bottom: 0px;
   }
   
   textarea {

@@ -5,18 +5,21 @@
 
       <div class="form-content">
         <myComboBox
+          id="empresa"
           label="SELECIONE A EMPRESA:"
           :items="empresas"
           v-model="empresaSelecionada"
         />
 
         <myComboBox
+          id="demanda"
           label="SELECIONE A DEMANDA:"
           :items="demandas"
           v-model="demandaSelecionada"
         />
 
         <myComboBox
+          id="tarefa"
           label="SELECIONE A TAREFA:"
           :items="tarefas"
           v-model="tarefaSelecionada"
@@ -30,7 +33,7 @@
         />
 
         <MyTextArea
-          id="descrição"
+          id="descricao"
           label="DESCRIÇÃO DA ATIVIDADE:"
           placeholder="Digite aqui..."
           v-model="descrição"
@@ -43,14 +46,30 @@
 
         <div class="half-combos">
           <MyHalfComboBox
+            id="inicio"
             label="INÍCIO DA ATIVIDADE:"
             :items="imageIndex"
             v-model="inicioSelecionado"
           />
           <MyHalfComboBox
+            id="fim"
             label="FIM DA ATIVIDADE:"
             :items="imageIndex"
             v-model="fimSelecionado"
+          />
+        </div>
+
+        <div class="action-buttons">
+          <MyActionButton
+            label="CANCELAR"
+            variant="cancel"
+            @click="handleCancelar"
+          />
+          <MyActionButton
+            label="CADASTRAR"
+            variant="primary"
+            :disabled="podeEnviar"
+            @click="handleEnviar"
           />
         </div>
       </div>
@@ -64,6 +83,7 @@ import myInputText from './InputText/myInputText.vue';
 import MyTextArea from './InputText/myTextArea.vue';
 import MyImageSlider from './ImageSlider/myImageSlider.vue';
 import MyHalfComboBox from './ComboBox/myHalfComboBox.vue';
+import MyActionButton from './Buttons/MyActionButton.vue';
 
 export default {
   name: 'MyAtividade',
@@ -73,6 +93,7 @@ export default {
     MyTextArea,
     MyImageSlider,
     MyHalfComboBox,
+    MyActionButton,
   },
   data() {
     return {
@@ -102,11 +123,40 @@ export default {
       fimSelecionado: '',
     };
   },
+  computed: {
+    podeEnviar() {
+      return (
+        !this.empresaSelecionada ||
+        !this.demandaSelecionada ||
+        !this.tarefaSelecionada ||
+        !this.atividade ||
+        !this.descrição ||
+        !this.inicioSelecionado ||
+        !this.fimSelecionado
+      );
+    }
+  },
   mounted() {
     this.buscarEmpresas();
     this.buscarDemandas();
     this.buscarTarefas();
     this.buscarImagens();
+  },
+  watch: {
+    inicioSelecionado(newInicio) {
+      const inicio = parseInt(newInicio?.id || newInicio);
+      const fim = parseInt(this.fimSelecionado?.id || this.fimSelecionado);
+      if (fim && inicio > fim) {
+        this.fimSelecionado = this.imageIndex.find(img => img.id === inicio);
+      }
+    },
+    fimSelecionado(newFim) {
+      const fim = parseInt(newFim?.id || newFim);
+      const inicio = parseInt(this.inicioSelecionado?.id || this.inicioSelecionado);
+      if (inicio && fim < inicio) {
+        this.inicioSelecionado = this.imageIndex.find(img => img.id === fim);
+      }
+    }
   },
   methods: {
     async buscarEmpresas() {
@@ -141,9 +191,15 @@ export default {
 
       this.imageIndex = this.imagePaths.map((path, index) => ({
         id: index + 1,
-        nome: path.split('/').pop(), // Exibe só o nome do arquivo
+        nome: `Imagem ${index + 1}`,
       }));
     },
+    handleCancelar() {
+      console.log('Cancelado!');
+    },
+    handleEnviar() {
+      console.log('Enviado!');
+    }
   },
 };
 </script>
@@ -156,7 +212,6 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  box-sizing: border-box;
   margin-top: 60px;
 }
 
@@ -191,7 +246,6 @@ export default {
 .form-content > * {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 .slider-wrapper {
@@ -206,5 +260,13 @@ export default {
   gap: 1rem;
   width: 100%;
   max-width: 600px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
 }
 </style>

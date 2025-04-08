@@ -5,15 +5,11 @@
     </div>
     <img :src="currentImage" alt="Imagem da atividade" class="slider-image" />
 
-    <!-- Número da imagem atual -->
-    
-
     <div class="controls">
       <button @click="prevImage" class="slider-button">‹</button>
       <button @click="nextImage" class="slider-button">›</button>
     </div>
 
-    <!-- Botão "Reproduzir/Pausar" entre a imagem e as miniaturas -->
     <div class="play-button-wrapper">
       <MyButton @click="togglePlay">
         {{ isPlaying ? 'Pausar' : 'Reproduzir' }}
@@ -21,22 +17,27 @@
     </div>
 
     <div class="thumbnails">
-      <img
+      <div
+        class="thumbnail-wrapper"
         v-for="(img, index) in imagePaths"
         :key="index"
-        :src="img"
-        :ref="el => thumbnailRefs[index] = el"
-        :class="['thumbnail', { active: index === currentIndex }]"
-        @click="selectImage(index)"
-        alt="Miniatura"
-      />
+      >
+        <img
+          :src="img"
+          :ref="el => thumbnailRefs[index] = el"
+          :class="['thumbnail', { active: index === currentIndex }]"
+          @click="selectImage(index)"
+          alt="Miniatura"
+        />
+        <span class="thumbnail-number">{{ index + 1 }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { nextTick } from 'vue';
-import MyButton from '../Botão/MyButton.vue'; // ajuste o caminho conforme necessário
+import MyButton from '../Buttons/MyButton.vue';
 
 export default {
   name: 'MyImageSlider',
@@ -92,7 +93,7 @@ export default {
       } else {
         this.intervalId = setInterval(() => {
           this.nextImage();
-        }, 20); // ajuste o tempo se quiser
+        }, 20);
         this.isPlaying = true;
       }
     },
@@ -117,7 +118,7 @@ export default {
 
 .slider-image {
   width: 100%;
-  max-height: 300px;
+  max-height: 500px;
   object-fit: contain;
   display: block;
   background-color: #f5f5f5;
@@ -163,17 +164,21 @@ export default {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 10px;
+  gap: 5px;
   padding: 10px;
   background: #fafafa;
   border-top: 1px solid #ddd;
   justify-content: flex-start;
 }
 
-.thumbnail {
+.thumbnail-wrapper {
   flex: 0 0 auto;
-  width: 60px;
-  height: 60px;
+  text-align: center;
+}
+
+.thumbnail {
+  width: 50px;
+  height: auto;
   object-fit: cover;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -182,13 +187,19 @@ export default {
 }
 
 .thumbnail:hover {
-  border-color: #999;
+  border: 4px solid #000000;
 }
 
 .thumbnail.active {
-  border-color: #007bff;
+  border: 4px solid #007bff;
 }
 
+.thumbnail-number {
+  font-size: 1rem;
+  color: #000000;
+  margin-top: 2px;
+  display: block;
+}
 .play-button-wrapper {
   text-align: center;
   margin: 15px 0 10px;
