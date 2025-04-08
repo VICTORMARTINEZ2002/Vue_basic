@@ -79,11 +79,14 @@
   .container {
     color: #000;
     position: fixed;
+    top: 60px; /* abaixo do header fixo */
+    left: 0;
     width: 25vw;
-    height: 100vh;
+    height: calc(100vh - 60px); /* para não ultrapassar a tela abaixo do header */
     background-color: #ffffff;
     padding-left: 1rem;
     box-sizing: border-box;
+    overflow-y: auto;
   }
   
   .menu-list {

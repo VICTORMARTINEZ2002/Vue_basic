@@ -1,18 +1,19 @@
 <template>
   <myHeader />
   <MyLateralMenu/>
-  <!-- <myComments /> -->
+  <MyAtividade/>
+  
 </template>
 
 <script>
-  // import myComments from './components/myComments'
+  import MyAtividade from './components/myAtividade.vue';
   import myHeader from './components/myHeader'
   import MyLateralMenu from './components/myLateralMenu.vue';
   
   export default {
     name: 'App',
     components: {
-      myHeader, MyLateralMenu
+      myHeader, MyLateralMenu, MyAtividade
     }
   }
 </script>
