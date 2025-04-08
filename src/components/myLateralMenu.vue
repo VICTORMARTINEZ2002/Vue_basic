@@ -5,14 +5,17 @@
           <img :src="InicioIcon" alt="INÍCIO" class="menu-icon">
           <a href="#" class="menu-link-main">INÍCIO</a>
         </li>
+
         <li class="menu-item">
           <img :src="GerenciarIcon" alt="GERENCIAR" class="menu-icon">
           <a href="#" class="menu-link-main">GESTÃO DE USUÁRIOS</a>
         </li>
+
         <li class="menu-item">
           <img :src="ClientesIcon" alt="CLIENTES" class="menu-icon">
           <a href="#" class="menu-link-main">EMPRESAS CLIENTES</a>
         </li>
+
         <li class="menu-item with-submenu">
           <div class="menu-content">
             <img :src="DemandasIcon" alt="DEMANDAS" class="menu-icon">
@@ -33,10 +36,12 @@
             </li>
           </ul>
         </li>
+
         <li class="menu-item">
           <img :src="DuvidasIcon" alt="DÚVIDAS" class="menu-icon">
           <a href="#" class="menu-link-main">DÚVIDAS FREQUENTES</a>
         </li>
+        
         <li class="menu-item">
           <img :src="SairIcon" alt="SAIR" class="menu-icon">
           <a href="#" class="menu-link-main">SAIR</a>
@@ -82,7 +87,7 @@
     top: 60px; /* abaixo do header fixo */
     left: 0;
     width: 25vw;
-    height: calc(100vh - 60px); /* para não ultrapassar a tela abaixo do header */
+    height: calc(100vh - 60px);
     background-color: #ffffff;
     padding-left: 1rem;
     box-sizing: border-box;

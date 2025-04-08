@@ -58,7 +58,6 @@ label {
 
 select {
   width: 100%;
-  max-width: 550px;
   height: 50px;
   padding: 8px 40px 8px 12px;
   font-size: 1rem;

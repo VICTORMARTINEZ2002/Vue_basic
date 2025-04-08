@@ -1,5 +1,5 @@
 <template>
-    <div class="atividade-container">
+    <div class="container">
       <div class="form-wrapper">
         <h1 class="page-title">Cadastrar Atividade</h1>
   
@@ -41,8 +41,6 @@
             <MyImageSlider :imagePaths="imagePaths" />
           </div>
 
-          <MyButton label="Salvar" @click="salvarAtividade" />
-        <MyButton label="Cancelar" :disabled="true" />
 
         </div>
       </div>
@@ -54,7 +52,6 @@
   import myInputText   from './InputText/myInputText.vue';
   import MyTextArea    from './InputText/myTextArea.vue';
   import MyImageSlider from './ImageSlider/myImageSlider.vue';
-  import MyButton from './Botão/MyButton.vue';
   
   export default {
     name: 'MyAtividade',
@@ -63,7 +60,6 @@
       myInputText,
       MyTextArea,
       MyImageSlider,
-      MyButton
     },
     data() {
       return {
@@ -149,58 +145,57 @@
   </script>
   
   <style scoped>
-  .atividade-container {
-    position: absolute;
-    margin-top: 50px;
-    left: 25vw;
-    width: 75vw;
-    top: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    box-sizing: border-box;
-  }
-  
-  .form-wrapper {
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
+.container {
+  min-height: 100vh;
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
 
-  
-  .page-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
-  }
-  
-  .form-content > * {
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .slider-wrapper {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .slider-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+.form-wrapper {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-content > * {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.slider-wrapper {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 30px;
+}
+
   </style>
   

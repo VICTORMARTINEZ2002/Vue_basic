@@ -55,7 +55,7 @@
   }
   
   textarea {
-    width: 550px;
+    width: 100%;
     padding: 12px;
     font-size: 1rem;
     border: 3px solid #A1A1A1;

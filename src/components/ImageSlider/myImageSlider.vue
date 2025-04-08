@@ -1,11 +1,12 @@
 <template>
   <div class="slider">
-    <img :src="currentImage" alt="Imagem da atividade" class="slider-image" />
-
-    <!-- Número da imagem atual -->
     <div class="image-counter">
       Imagem {{ currentIndex + 1 }} de {{ imagePaths.length }}
     </div>
+    <img :src="currentImage" alt="Imagem da atividade" class="slider-image" />
+
+    <!-- Número da imagem atual -->
+    
 
     <div class="controls">
       <button @click="prevImage" class="slider-button">‹</button>
@@ -125,8 +126,8 @@ export default {
 
 .image-counter {
   text-align: center;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #474747;
   margin-top: 8px;
 }
 
