@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="form-wrapper">
-      <h1 class="page-title">Cadastrar Atividade</h1>
-
       <div class="form-content">
+        <h1 class="page-title">Cadastrar Atividade</h1>
+
         <myComboBox
           id="empresa"
           label="SELECIONE A EMPRESA:"
@@ -206,22 +206,21 @@ export default {
 
 <style scoped>
 .container {
-  min-height: 100vh;
   width: 75vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
   margin-top: 60px;
+  max-width: 800px;
 }
 
 .form-wrapper {
   width: 100%;
-  max-width: 800px;
   padding: 20px;
   background-color: #ffffff;
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -232,7 +231,7 @@ export default {
   font-weight: bold;
   color: #000000;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .form-content {
@@ -240,7 +239,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .form-content > * {
@@ -250,23 +249,20 @@ export default {
 
 .slider-wrapper {
   width: 100%;
-  max-width: 600px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 .half-combos {
   display: flex;
   gap: 1rem;
   width: 100%;
-  max-width: 600px;
 }
 
 .action-buttons {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 600px;
   margin-top: 20px;
 }
 </style>
