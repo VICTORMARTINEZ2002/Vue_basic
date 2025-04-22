@@ -86,12 +86,11 @@
     position: fixed;
     top: 60px; /* abaixo do header fixo */
     left: 0;
-    width: 25vw;
-    height: calc(100vh - 60px);
+    width: 300px;
+    height: calc(100vh  - 60px);
     background-color: #ffffff;
     padding-left: 1rem;
     box-sizing: border-box;
-    overflow-y: auto;
   }
   
   .menu-list {

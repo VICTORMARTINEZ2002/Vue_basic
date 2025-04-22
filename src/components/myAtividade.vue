@@ -206,12 +206,11 @@ export default {
 
 <style scoped>
 .container {
-  width: 75vw;
+  width: 75dvw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  margin-top: 60px;
   max-width: 800px;
 }
 
