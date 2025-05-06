@@ -211,6 +211,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  min-width: 350px;
   max-width: 800px;
 }
 

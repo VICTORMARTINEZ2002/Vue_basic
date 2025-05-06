@@ -50,7 +50,7 @@ export default {
       required: true,
     },
   },
-  data() {
+  data(){
     return {
       currentIndex: 0,
       isPlaying: false,

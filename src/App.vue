@@ -27,7 +27,7 @@ export default {
 .app-container {
 	position: relative;
 	height: 100dvh;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .atividade-container {
@@ -49,7 +49,7 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	min-width: 1024px;
+	overflow: clip;
+	min-width: 800px;
 }
 </style>

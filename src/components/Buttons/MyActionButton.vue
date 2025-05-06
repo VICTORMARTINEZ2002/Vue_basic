@@ -40,27 +40,23 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 100%; /* Ocupa 100% da largura do seu contêiner */
-  max-width: 45%; /* Não ultrapassa 45% da largura do contêiner pai */
+  width: 100%;
+  max-width: 45%;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
   border: 5px solid;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
-  box-sizing: border-box; /* Garante que padding não afete a largura do botão */
+  box-sizing: border-box;
 }
 
-/* Default style (primary) */
 .action-button.primary {
   background-color: #14637F;
   border-color: #14637F;
   color: #ffffff;
 }
 
-
-
-/* Cancel variant — sem fundo */
 .action-button.cancel {
   background-color: transparent;
   border-color: #14637F;
